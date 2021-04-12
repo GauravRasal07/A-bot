@@ -16,4 +16,4 @@ _date : displays current date and time
 _clear : deletes latest 10 messages from the server
 
 
-A-Bot Invitation link : (https://discord.com/oauth2/authorize?client_id=829946280037318706&scope=bot&permissions=8)
+__**A-Bot Invitation link**__ : (https://discord.com/oauth2/authorize?client_id=829946280037318706&scope=bot&permissions=8)
