@@ -1,6 +1,6 @@
 **A-Bot** is a Simple Discord Bot which performs some Funny as well as Essential Tasks.
 
-The main motto behind this was to explore Discord.js library used to create discord bots and also explore deployment on Repl.it which provides support for continues running for our script.
+The main motto behind this was to explore Discord.js library used to create discord bots and also explore deployment on Repl.it which provides support to continues running for our script.
 
 A-Bot recognizes commands starting with “_”.
 Currently it understands only following commands :
