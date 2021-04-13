@@ -43,11 +43,9 @@ client.on('message', msg => {
     }
 
     else if(txt.startsWith('_joke')){
-        let Joke;
-        joke.getRandomDadJoke((getJoke) => {
-            Joke = getJoke;
+        joke.getRandomDadJoke((Joke) => {
+            msg.channel.send(Joke);
         });
-        msg.channel.send(Joke);
     }
 
     else if(txt.startsWith('_date')){
