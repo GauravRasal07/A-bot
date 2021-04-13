@@ -3,14 +3,20 @@ const Discord    = require('discord.js'),
       joke       = require('give-me-a-joke'),
 	  dateFormat = require('dateformat'),
       file       = require("./secrete"),
+      axios      = require("axios").default,
       client     = new Discord.Client();
 
 client.login(file.ID);
 
-var Joke;
-joke.getRandomDadJoke((getJoke) => {
-    Joke = getJoke;
-});
+var options = {
+    method: 'GET',
+    url: 'https://livescore6.p.rapidapi.com/matches/v2/list-live',
+    params: {Category: 'cricket'},
+    headers: {
+      'x-rapidapi-key': file.KEY,
+      'x-rapidapi-host': 'livescore6.p.rapidapi.com'
+    }
+  };
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -37,6 +43,10 @@ client.on('message', msg => {
     }
 
     else if(txt.startsWith('_joke')){
+        let Joke;
+        joke.getRandomDadJoke((getJoke) => {
+            Joke = getJoke;
+        });
         msg.channel.send(Joke);
     }
 
@@ -51,4 +61,21 @@ client.on('message', msg => {
         .then(messages => console.log(`Bulk deleted ${messages.size} messages`))
         .catch(console.error);
     }
+
+    else if(txt.startsWith('_score')){  
+          axios.request(options).then(function (response) {
+              let temp = response.data.Stages;
+              if(temp.length > 0){
+                temp.forEach(element => {
+                    let temp1 = element.Events;
+                    msg.reply('This Feature is coming soon...');
+                });
+              } else {
+                msg.channel.send('No Live Matches to Show!!!');
+              }
+          }).catch(function (error) {
+              console.error(error);
+          });
+    }
+
 })

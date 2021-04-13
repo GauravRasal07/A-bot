@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/GauravRasal07/A-bot#readme",
   "dependencies": {
+    "axios": "^0.21.1",
+    "cric-live": "^1.0.19",
     "dateformat": "^4.5.1",
     "discord.js": "^12.5.3",
     "give-me-a-joke": "^0.4.0",
