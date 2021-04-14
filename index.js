@@ -34,7 +34,7 @@ client.on('message', msg => {
     }
 
     else if(txt.startsWith('_help')){
-        msg.channel.send("_quote : get an inspirational quote\n_joke : crack a joke\n_date : today's date and time\n_clear : delete last 10 messages");
+        msg.channel.send("_quote : get an inspirational quote\n_joke : crack a joke\n_date : today's date and time\n_score : lists scores of all live cricket matches at that moment\n_clear : delete last 10 messages");
     }
 
     else if(txt.startsWith('_quote')){
@@ -64,9 +64,11 @@ client.on('message', msg => {
           axios.request(options).then(function (response) {
               let temp = response.data.Stages;
               if(temp.length > 0){
+                let no = 1;
                 temp.forEach(element => {
-                    let temp1 = element.Events;
-                    msg.reply('This Feature is coming soon...');
+                    let temp1 = element.Events[0].ECo;
+                    msg.channel.send("Match " + no + " : " + temp1);
+                    no++;
                 });
               } else {
                 msg.channel.send('No Live Matches to Show!!!');

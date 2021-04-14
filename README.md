@@ -11,6 +11,8 @@ _joke : cracks a joke
 
 _quote : get an inspirational quote
 
+_score : lists the scores of all live cricket matches all over world at that moment
+
 _date : displays current date and time
 
 _clear : deletes latest 10 messages from the server
