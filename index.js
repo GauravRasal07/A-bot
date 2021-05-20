@@ -43,11 +43,11 @@ client.on('message', msg => {
     }
 
     else if(txt.startsWith('_joke')){
-        var options = {
+        let options_1 = {
             method: 'GET',
             url: 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=sexist,explicit&type=single'
         };
-        axios.request(options).then(function (response) {
+        axios.request(options_1).then(function (response) {
             let joke = response.data.joke;
             msg.channel.send(joke);
         }).catch(function (error) {
@@ -73,8 +73,11 @@ client.on('message', msg => {
               if(temp.length > 0){
                 let no = 1;
                 temp.forEach(element => {
-                    let temp1 = element.Events[0].ECo;
-                    msg.channel.send("Match " + no + " : " + temp1);
+                    let temp1 = element.Events[0],
+                        match = temp1.T1[0].Nm + ' Vs ' + temp1.T2[0].Nm,
+                        status = temp1.ECo,
+                        type  = temp1.EtTx;
+                    msg.channel.send("Match " + no + " : " + match + '\nType : ' + type + '\nStatus : ' + status);
                     no++;
                 });
               } else {
