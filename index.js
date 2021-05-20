@@ -43,8 +43,15 @@ client.on('message', msg => {
     }
 
     else if(txt.startsWith('_joke')){
-        joke.getRandomDadJoke((Joke) => {
-            msg.channel.send(Joke);
+        var options = {
+            method: 'GET',
+            url: 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=sexist,explicit&type=single'
+        };
+        axios.request(options).then(function (response) {
+        joke = response.data.joke;
+        msg.channel.send(joke);
+        }).catch(function (error) {
+            console.error(error);
         });
     }
 
