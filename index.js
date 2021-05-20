@@ -48,8 +48,8 @@ client.on('message', msg => {
             url: 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=sexist,explicit&type=single'
         };
         axios.request(options).then(function (response) {
-        joke = response.data.joke;
-        msg.channel.send(joke);
+            let joke = response.data.joke;
+            msg.channel.send(joke);
         }).catch(function (error) {
             console.error(error);
         });
