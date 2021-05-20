@@ -77,7 +77,7 @@ client.on('message', msg => {
                         match = temp1.T1[0].Nm + ' Vs ' + temp1.T2[0].Nm,
                         status = temp1.ECo,
                         type  = temp1.EtTx;
-                    msg.channel.send("Match " + no + " : " + match + '\nType : ' + type + '\nStatus : ' + status);
+                    msg.channel.send("Match " + no + " : " + match + '\nType : ' + type + '\nStatus : ' + status + "\n\n");
                     no++;
                 });
               } else {
